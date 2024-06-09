@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="data:," />
+    <meta
+      name="description"
+      content="A brief description of your page for SEO and accessibility."
+    />
+    <meta name="keywords" content="Migration, history, kinship" />
+    <title>Roots And Migrants</title>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.4.0/mapbox-gl-compare.css"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata"
+    />
+    <script src="https://api.mapbox.com/mapbox.js/plugins/turf/v3.0.11/turf.min.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link rel="stylesheet" href="assets/anim.css" />
+    <script src="https://d3js.org/colorbrewer.v1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-statistics@7.8.1/dist/simple-statistics.min.js"></script>
+  </head>
+  <body>
+    <div id="tabs">
+      <a href="#" id="logo"><img src="img/geosocialLogo.png" alt="Logo" /></a>
+      <button id="animation-tab">Boundaries</button>
+      <button id="population-tab">Population</button>
+      <button id="migration-tab">Migration</button>
+      <button id="visualization-tab">Subset</button>
+
+      <span
+        id="roots"
+        style="
+          color: white;
+          margin-left: 750px;
+          font-size: medium;
+          text-shadow: 0 0 5px white;
+        "
+        >ROOTS AND MIGRANTS</span
+      >
+    </div>
+    <div id="animation-content" class="tab-content">
+      <h1 class="title">
+        THE TERRITORIAL EXPANSION OF THE CONTIGUOUS UNITED STATES
+      </h1>
+      <div id="container">
+        <div id="text-section">
+          <!-- Your animation content here -->
+          <p>
+            During the 17th and 18th centuries, there were thirteen British
+            colonies on the Atlantic coast of North America. Grievances against
+            the imperial government led the 13 colonies to begin uniting in
+            1774, and expelling British officials by 1775.
+          </p>
+          <img
+            src="img/colonies.png"
+            alt="Thirteen colonies"
+            style="width: 200px; height: auto; margin-bottom: 20px"
+          />
+          <p>
+            By 1800, states and territories of the United States used in the
+            second census included Kentucky and Tennessee as well as the
+            NorthWest territories and the territories of Indiana and Mississipi.
+            In 1803, the United States acquired the louisiana territory from
+            Spain fulfilling the concept of Manifest Destiny which further
+            fueled westward migration, with pioneers and settlers moving across
+            the Appalachian Mountains to settle areas like the Midwest, Great
+            Plains, and eventually the West Coast. In 1804, the territory was
+            divided into the Orleans Territory and the Louisiana District. The
+            territoty of Orleans was admitted into the Union as the state of
+            Louisiana in 1812. To avoid confusion, the northern part of
+            Louisiana territory was renamed Missouri Territory.The Louisiana
+            purchase doubled the size of the United states.
+          </p>
+          <img
+            src="img/Louisiana_Purchase.png"
+            alt="Louisiana Purchase"
+            style="width: 200px; height: auto; margin-bottom: 20px"
+          />
+          <p>
+            In 1821, the Adams-Onis Treaty between the US and new Spain aquired
+            West Florida to the US setting a boundary between US and New Spain,
+            now Mexico. In 1846, the Oregon treaty between the United states and
+            Britain was signed. Two years after, the US made Oregon a territory
+            which included all of the present day states of Oregon, Washington,
+            Idaho, and parts of Montana and Wyoming.
+          </p>
+          <p>
+            Texas was annexed from the Republic of Texas after it claimed
+            independence from Mexico in 1836. This annexation occurred in 1845
+          </p>
+          <p>
+            The Treaty of Guadalupe, signed on February 2, 1848, ended the war
+            between the United States and Mexico. By its terms, Mexico ceded 55%
+            of its territory, including the present-day states California,
+            Nevada, Utah, New Mexico, most of Arizona and Colorado, and parts of
+            Oklahoma, Kansas, and Wyoming. This region was referred to as
+            Mexican Cession. Mexican residents in the newly acquired territories
+            were given the option to relocate within Mexico's new boundaries or
+            to stay and become U.S. citizens
+          </p>
+          <img
+            src="img/mexican_war.png"
+            alt="Mexican War"
+            style="width: 200px; height: auto; margin-bottom: 20px"
+          />
+          <p>
+            In 1854, the Gadsen Purchase saw the aquisition of present day
+            southern Arizona and south Western New Mexico by the United States.
+          </p>
+          <p>
+            By 1866, part of the western half of the Indian Territory was
+            claimed by the United states and later became Oklahoma territory in
+            1890.
+          </p>
+          <p>
+            In 1912, the United States officially had 48 states with the
+            Addition of Arizona and New Mexico.
+          </p>
+        </div>
+        <div id="map"></div>
+      </div>
+      <div id="slider-container-animation">
+        <input
+          type="range"
+          id="slider-animation"
+          min="1800"
+          max="1910"
+          step="10"
+          value="1800"
+        />
+        <div id="year-label-animation">Year: 1800</div>
+      </div>
+    </div>
+    <div id="visualization-content" class="tab-content">
+      <div class="header">HISTORICAL MIGRATION IN THE UNITED STATES</div>
+
+      <div class="content">
+        <div class="text-sections" id="text-sections">
+          <div class="chapter" id="chapter-general">
+            <h2>General Overview</h2>
+            <p>
+              This section provides a general overview of the migration patterns
+              in the United States. Select a specific ethnic group to see
+              detailed information about their migration patterns.
+            </p>
+          </div>
+          <div class="chapter" id="chapter-asians" style="display: none">
+            <h2>Asians</h2>
+            <p>
+              This section describes the migration patterns of Asians in the
+              United States.
+            </p>
+          </div>
+          <div
+            class="chapter"
+            id="chapter-native-americans"
+            style="display: none"
+          >
+            <h2>Native Americans</h2>
+            <p>
+              This section describes the migration patterns of Native Americans
+              in the United States.
+            </p>
+          </div>
+          <div class="chapter" id="chapter-africans" style="display: none">
+            <h2>Africans</h2>
+            <p>
+              This section describes the migration patterns of Africans in the
+              United States.
+            </p>
+          </div>
+          <div class="chapter" id="chapter-europeans" style="display: none">
+            <h2>Europeans</h2>
+            <p>
+              This section describes the migration patterns of Europeans in the
+              United States.
+            </p>
+          </div>
+        </div>
+        <div class="checkbox-section" id="checkbox-section">
+          <h2>Population subset</h2>
+          <label>
+            <input type="radio" name="subset" value="general" checked />
+            General Overview </label
+          ><br />
+          <label>
+            <input type="radio" name="subset" value="asians" />
+            Asians </label
+          ><br />
+          <label>
+            <input type="radio" name="subset" value="native-americans" />
+            Native Americans </label
+          ><br />
+          <label>
+            <input type="radio" name="subset" value="africans" />
+            Africans </label
+          ><br />
+          <label>
+            <input type="radio" name="subset" value="europeans" />
+            Europeans </label
+          ><br />
+        </div>
+        <div id="map-legends" class="map-legends">
+          <h3>Legend</h3>
+          <div class="legend-items">
+            <div class="color-boxs" style="background-color: #d7191c"></div>
+            <span>Highest Outflows</span>
+          </div>
+          <div class="legend-items">
+            <div class="color-boxs" style="background-color: #fdae61"></div>
+            <span>High Outflows</span>
+          </div>
+          <div class="legend-items">
+            <div class="color-boxs" style="background-color: #ffffbf"></div>
+            <span>Unchanged</span>
+          </div>
+          <div class="legend-items">
+            <div class="color-boxs" style="background-color: #abd9e9"></div>
+            <span>High Inflows</span>
+          </div>
+          <div class="legend-items">
+            <div class="color-boxs" style="background-color: #2c7bb6"></div>
+            <span>Very High Inflows</span>
+          </div>
+        </div>
+
+        <div id="maps">
+          <div id="comparison-container">
+            <div id="before" class="maps"></div>
+            <div id="after" class="maps"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="population-content" class="tab-content">
+      <h1 class="title">
+        THE POPULATION DENSITY OF THE CONTIGUOUS UNITED STATES
+      </h1>
+      <div id="container">
+        <div id="text-section">
+          <!-- Your animation content here -->
+          <p>Animated Map of population density in the united states</p>
+        </div>
+        <div id="mapDen"></div>
+        <div id="loader">Loading...</div>    
+    </div>
+    <div id="slider-container-density">
+      <input
+        type="range"
+        id="slider-density"
+        min="1800"
+        max="1900"
+        step="10"
+        value="1800"
+      />
+      <div id="year-label-density">Year: 1800</div>
+      <div class="tooltip" id="tooltip"></div>
+    </div>
+    <div id="density-legend">
+      <h3>Census Pop. per Sq. km</h3>
+      <div class="item">
+        <div class="color" style="background-color: #f7fbff"></div>
+        <span>Sparse</span>
+      </div>
+      <div class="item">
+        <div class="color" style="background-color: #deebf7"></div>
+        <span>Moderately Sparse</span>
+      </div>
+      <div class="item">
+        <div class="color" style="background-color: #c6dbef"></div>
+        <span>Moderately Dense</span>
+      </div>
+      <div class="item">
+        <div class="color" style="background-color: #9ecae1"></div>
+        <span>Dense</span>
+      </div>
+      <div class="item">
+        <div class="color" style="background-color: #3182bd"></div>
+        <span>Highly Dense</span>
+      </div>
+    </div>
+
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.4.0/mapbox-gl-compare.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/viz.js"></script>
+    <script src="assets/anim.js"></script>
+    <script src="js/mapinteraction.js"></script>
+    <script src="density.js"></script>
+
+  </body>
+</html>

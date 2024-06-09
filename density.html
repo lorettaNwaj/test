@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="data:," />
+    <title>Roots And Migrants</title>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.4.0/mapbox-gl-compare.css"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata"
+    />
+    <script src="https://api.mapbox.com/mapbox.js/plugins/turf/v3.0.11/turf.min.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="index.js"></script>
+    <script src="https://d3js.org/colorbrewer.v1.min.js"></script>
+  </head>
+  <body>
+    <div id="tabs">
+      <a href="#" id="logo"><img src="img/geosocialLogo.png" alt="Logo" /></a>
+      <button id="animation-tab">Boundaries</button>
+      <button id="visualization-tab">Population</button>
+      <button id="migration-tab">Migration</button>
+
+      <span
+        id="roots"
+        style="
+          color: white;
+          margin-left: 800px;
+          font-size: medium;
+          text-shadow: 0 0 5px white;
+        "
+        >ROOTS AND MIGRANTS</span
+      >
+    </div>
+    <div id="Population-content" class="tab-content">
+      <h1 class="title">
+        THE POPULATION DENSITY OF THE CONTIGUOUS UNITED STATES
+      </h1>
+      <div id="container">
+        <div id="text-section">
+          <!-- Your animation content here -->
+          <p>Animated Map of population density in the united states</p>
+        </div>
+        <div id="map"></div>
+        <div id="loader">Loading...</div>
+      </div>
+      <div id="slider-container">
+        <input
+          type="range"
+          id="slider"
+          min="1800"
+          max="1900"
+          step="10"
+          value="1800"
+        />
+        <div id="year-label">Year: 1800</div>
+        <div class="tooltip" id="tooltip"></div>
+      </div>
+      <div id="map-legend" class="map-legend">
+        <h3>Census Pop. per Sq. km</h3>
+        <div class="legend-item">
+          <div class="color-box" style="background-color: #f7fbff"></div>
+          <span>sparce</span>
+        </div>
+        <div class="legend-item">
+          <div class="color-box" style="background-color: #deebf7"></div>
+          <span>moderately sparce</span>
+        </div>
+        <div class="legend-item">
+          <div class="color-box" style="background-color: #c6dbef"></div>
+          <span>moderately densed</span>
+        </div>
+        <div class="legend-item">
+          <div class="color-box" style="background-color: #9ecae1"></div>
+          <span>Dense</span>
+        </div>
+        <div class="legend-item">
+          <div class="color-box" style="background-color: #3182bd"></div>
+          <span>Higly densed</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
