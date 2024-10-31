@@ -1,0 +1,172 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-family: "Inconsolata", monospace;
+}
+
+.title {
+  margin-top: 3%;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: black;
+}
+#tabs {
+  background-color: lightgray;
+  padding: 1px;
+  width: 100%;
+  text-align: left;
+}
+
+#tabs button {
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  background-color: lightgrey;
+}
+
+#tabs button:hover {
+  background-color: lightgrey;
+}
+
+#tabs #logo img {
+  width: 150px;
+  height: auto;
+  margin-right: 30px;
+  margin-left: 30px;
+  vertical-align: middle;
+}
+.title {
+  margin-top: 3%;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: black;
+  font-family: "Inconsolata";
+}
+#population-content {
+  width: 100%;
+  height: 100%;
+}
+#container {
+  display: flex;
+  width: 100%;
+  height: calc(80vh - 20px);
+  margin-top: 0.5%;
+}
+#text-section {
+  flex: 0.3;
+  padding: 20px;
+  background-color: white;
+  overflow-y: auto;
+  box-shadow: 3px 0 6px rgba(0, 0, 0, 0.1);
+  font-family: "Inconsolata", sans-serif;
+  text-align: justify;
+}
+p {
+  text-align: justify;
+  font-size: 20px;
+  color: black;
+  font-family: "Calbiri";
+}
+#map {
+  flex: 1;
+  display: flex;
+}
+#slider {
+  width: 50%;
+  margin: 20px auto;
+  justify-content: center;
+  align-content: center;
+  display: block;
+  background-color: white;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 10px;
+  background: #ddd;
+  outline: none;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  display: flex;
+}
+
+#slider:hover {
+  opacity: 1;
+}
+
+#slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 20px;
+  background: black;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+#slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #151615;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+#year-label {
+  margin-top: -15px;
+  text-align: center;
+  font-size: 15px;
+  background-color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-family: "Open Sans Bold", "Arial Unicode MS Bold";
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: black;
+}
+.map-legend {
+  position: absolute;
+  top: 150px; /* Change to top position */
+  left: 500px; /* Change to left position */
+  background-color: white;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Ensure the legend appears on top of other map elements */
+}
+
+.legend-item {
+  margin-bottom: 3px;
+}
+
+.color-box {
+  display: inline-block;
+  width: 20px;
+  height: 10px;
+  margin-right: 5px;
+  border: 1px solid #888;
+}
+
+#loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  z-index: 1;
+}
+.tooltip {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
